@@ -16,8 +16,12 @@ class CoursesController < ApplicationController
 
     if @course.save
     redirect_to @course
+    else
+      render :new
     end
   end
+
+  private
 
   def course_params
     params.require(:course).permit(:name, :description, :code, :price, :enrollment_deadline)
