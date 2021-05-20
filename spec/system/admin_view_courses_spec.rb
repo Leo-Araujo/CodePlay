@@ -28,7 +28,8 @@ describe 'Admin view courses' do
     Course.create!(name: 'Ruby on Rails',
                    description: 'Um curso de Ruby on Rails',
                    code: 'RUBYONRAILS', price: 20,
-                   enrollment_deadline: '20/12/2033')
+                   enrollment_deadline: '20/12/2033',
+                   banner: fixture_file_upload(Rails.root.join('spec/fixtures/course.jpg')))
 
     visit root_path
     click_on 'Cursos'
@@ -39,6 +40,7 @@ describe 'Admin view courses' do
     expect(page).to have_content('RUBYONRAILS')
     expect(page).to have_content('R$ 20,00')
     expect(page).to have_content('20/12/2033')
+    expect(page).to have_css('img[src*="course.jpg"]')
   end
 
   it 'and no course is available' do

@@ -1,0 +1,44 @@
+<%= form_for course do |f| %>
+
+<div>
+  <%= f.label :name, 'Nome' %>
+  <%= f.text_field :name %>
+
+  <% course.errors[:name].each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+</div>
+
+<div>
+  <%= f.label :description, 'Descrição' %>
+  <%= f.text_area :description %>
+</div>
+
+<div>
+  <%= f.label :code, 'Código' %>
+  <%= f.text_field :code %>
+  <% course.errors[:code].each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+</div>
+
+<div>
+  <%= f.label :price, 'Preço' %>
+  <%= f.text_field :price %>
+  <% course.errors[:price].each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+</div>
+
+<div>
+  <%= f.label :enrollment_deadline, 'Data limite de matrícula' %>
+  <%= f.date_field :enrollment_deadline %>
+</div>
+
+<div>
+  <%= f.label :banner, 'Banner' %>
+  <%= f.file_field :banner %>
+</div>
+
+  <%= f.submit 'Criar curso' %>
+<% end %>
