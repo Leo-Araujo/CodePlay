@@ -1,0 +1,5 @@
+<% @instructors.each do |instructor| %>
+  <h1><%= link_to instructor.name, instructor %></h1>
+  <p><%= instructor.email %></p>
+  <p><%= instructor.bio %></p>
+<% end %>
