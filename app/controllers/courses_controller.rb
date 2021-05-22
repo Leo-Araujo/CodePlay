@@ -9,6 +9,7 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
+    @instructors = Instructor.all
   end
 
   def create
@@ -17,6 +18,7 @@ class CoursesController < ApplicationController
     if @course.save
       redirect_to @course
     else
+      @instructors = Instructor.all
       render :new
     end
   end
@@ -24,6 +26,7 @@ class CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:name, :description, :code, :price, :enrollment_deadline, :banner)
+    params.require(:course).permit(:name, :description, :code, :price,
+                                   :enrollment_deadline, :banner, :instructor_id)
   end
 end

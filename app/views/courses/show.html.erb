@@ -11,5 +11,7 @@
   <dd><%= number_to_currency @course.price %></dd>
   <dt>Data limite de matrícula</dt>
   <dd><%= I18n.localize @course.enrollment_deadline %></dd>
+  <dt>Instrutor</dt>
+  <dd><%= @course.instructor.name %></dd>
 </dl>
 <%= link_to 'Voltar', courses_path %>

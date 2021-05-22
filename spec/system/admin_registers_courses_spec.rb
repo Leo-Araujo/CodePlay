@@ -10,6 +10,9 @@ describe 'Admin registers courses' do
   end
 
   it 'successfully' do
+    instructor = Instructor.create!(name:'Jane Doe', email: 'jane@codeplay.com', 
+                                    bio:'Formada em ads, tenho 3 gatos e 2 cachorros')
+
     visit root_path
     click_on 'Cursos'
     click_on 'Registrar um Curso'
@@ -19,6 +22,7 @@ describe 'Admin registers courses' do
     fill_in 'Código', with: 'RUBYONRAILS'
     fill_in 'Preço', with: '30'
     fill_in 'Data limite de matrícula', with: '22/12/2033'
+    select instructor.name, from: 'Instrutor'
     attach_file 'Banner', Rails.root.join('spec/fixtures/course.jpg')
     click_on 'Criar curso'
 
@@ -48,9 +52,13 @@ describe 'Admin registers courses' do
   end
 
   it 'and code must be unique' do
+    instructor = Instructor.create!(name:'Jane Doe', email: 'jane@codeplay.com', 
+                                    bio:'Formada em ads, tenho 3 gatos e 2 cachorros')
+
     Course.create!(name: 'Ruby', description: 'Um curso de Ruby',
                    code: 'RUBYBASIC', price: 10,
-                   enrollment_deadline: '22/12/2033')
+                   enrollment_deadline: '22/12/2033',
+                   instructor: instructor)
 
     visit root_path
     click_on 'Cursos'

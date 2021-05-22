@@ -36,6 +36,11 @@
 </div>
 
 <div>
+  <%= f.label :instructor_id, 'Instrutor' %>
+  <%= f.collection_select :instructor_id, instructors, :id, :name %>
+</div>
+
+<div>
   <%= f.label :banner, 'Banner' %>
   <%= f.file_field :banner %>
 </div>
