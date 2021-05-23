@@ -1,0 +1,23 @@
+<%= form_for @instructor do |f| %>
+<div>
+  <%= f.label :name, 'Nome' %>
+  <%= f.text_field :name %>
+</div>
+
+<div>
+  <%= f.label :email, 'Email' %>
+  <%= f.text_field :email %>
+</div>
+
+<div>
+  <%= f.label :bio, 'Bio' %>
+  <%= f.text_area :bio %>
+</div>
+
+<div>
+  <%= f.label :profile_picture, 'Foto do perfil' %>
+  <%= f.file_field :profile_picture %>
+</div>
+
+<%= f.submit 'Registrar professor' %>
+<% end %>
