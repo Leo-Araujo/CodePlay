@@ -2,11 +2,19 @@
 <div>
   <%= f.label :name, 'Nome' %>
   <%= f.text_field :name %>
+
+  <% @instructor.errors[:name].each do |message| %>
+    <p><%= message %></p>
+  <% end %>
 </div>
 
 <div>
   <%= f.label :email, 'Email' %>
   <%= f.text_field :email %>
+
+  <% @instructor.errors[:email].each do |message| %>
+    <p><%= message %></p>
+  <% end %>
 </div>
 
 <div>
