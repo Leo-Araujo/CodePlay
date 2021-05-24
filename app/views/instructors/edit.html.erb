@@ -1,0 +1,31 @@
+<%= form_for @instructor do |f| %>
+<div>
+  <%= f.label :name, 'Nome' %>
+  <%= f.text_field :name %>
+
+  <% @instructor.errors[:name].each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+</div>
+
+<div>
+  <%= f.label :email, 'Email' %>
+  <%= f.text_field :email %>
+
+  <% @instructor.errors[:email].each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+</div>
+
+<div>
+  <%= f.label :bio, 'Bio' %>
+  <%= f.text_area :bio %>
+</div>
+
+<div>
+  <%= f.label :profile_picture, 'Foto do perfil' %>
+  <%= f.file_field :profile_picture %>
+</div>
+
+<%= f.submit 'Atualizar' %>
+<% end %>
