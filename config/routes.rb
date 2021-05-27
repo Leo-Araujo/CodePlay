@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root 'home#index'
-  resources :courses, only: %i[index show new create]
+  resources :courses, only: %i[index show new create] do
+    resources :lessons, only: %i[new create show edit update destroy]
+  end
+
   resources :instructors, only: %i[index show new create edit update]
 end

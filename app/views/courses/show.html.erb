@@ -15,3 +15,17 @@
   <dd><%= @course.instructor.name %></dd>
 </dl>
 <%= link_to 'Voltar', courses_path %>
+<%= link_to 'Registrar uma aula', new_course_lesson_path(@course) %>
+
+<h1>Aulas</h1>
+<% if @course.lessons.empty?%>
+  <p>Não há aulas cadastradas para este curso</p>
+<% else %>
+  <div>
+    <% @course.lessons.each do |lesson| %>
+      <%= link_to lesson.name, course_lesson_path(lesson) %>
+      <p><%= t('lesson.duration', count: lesson.duration) %></p>
+    <% end %>
+  </div>
+<% end %>
+
