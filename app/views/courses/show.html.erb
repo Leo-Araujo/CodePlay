@@ -15,6 +15,8 @@
   <dd><%= @course.instructor.name %></dd>
 </dl>
 <%= link_to 'Voltar', courses_path %>
+<%= link_to 'Editar', edit_course_path %>
+<%= link_to 'Apagar', course_path(@course), method: :delete %>
 <%= link_to 'Registrar uma aula', new_course_lesson_path(@course) %>
 
 <h1>Aulas</h1>
