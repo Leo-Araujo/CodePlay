@@ -19,5 +19,16 @@ describe Instructor do
 
       expect(instructor.errors[:email]).to include('já está em uso')
     end
+    
+    it 'deleting Instructor' do
+     instructor = Instructor.create(name: 'João Silva', email: 'joao@codeplay.com')
+
+      Course.create!(name: 'Ruby', description: 'Um curso de Ruby',
+                    code: 'RUBYBASIC', price: 10,
+                    enrollment_deadline: '22/12/2033',
+                    instructor: instructor)
+
+    expect{ instructor.destroy }.to raise_error(ActiveRecord::DeleteRestrictionError)
+    end
   end
 end

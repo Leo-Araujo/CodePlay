@@ -5,4 +5,5 @@
 <p><%= @instructor.email %></p>
 <p><%= @instructor.bio %></p>
 <%= link_to 'Atualizar', edit_instructor_path %>
+<%= link_to 'Apagar', instructor_path(@instructor), method: :delete %>
 <%= link_to 'Voltar', instructors_path %>

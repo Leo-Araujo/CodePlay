@@ -5,5 +5,5 @@ Rails.application.routes.draw do
     resources :lessons, only: %i[new create show edit update destroy]
   end
 
-  resources :instructors, only: %i[index show new create edit update]
+  resources :instructors, only: %i[index show new create edit update destroy]
 end
